@@ -1,0 +1,21 @@
+# .gitignore
+
+# Node.js
+node_modules/
+
+# Build files
+build/
+dist/
+
+# Dependency directory
+.yarn/
+
+# IDE
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

@@ -1,0 +1,141 @@
+/*
+Main Color: #1864ab
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Kanit", sans-serif;
+  box-sizing: border-box;
+  background-color: #edf2ff;
+  color: #212529;
+}
+.app {
+  width: 80%;
+  max-width: 100rem;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
+.btn {
+  padding: 1rem 1.8rem;
+  border: none;
+  color: #1864ab;
+  background-color: #d0ebff;
+  border-radius: 0.6rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+}
+/*  HEADER  */
+.header {
+  background-color: #d0ebff;
+  padding: 2.4rem 5rem;
+  border-radius: 1.2rem;
+  text-align: center;
+  width: 50%;
+}
+.header__title {
+  font-size: 3.8rem;
+  color: #1864ab;
+}
+.header__subtitle {
+  font-size: 1.6rem;
+  color: #1971c2;
+}
+.header__notask {
+  font-size: 2.4rem;
+  color: #1864ab;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 800;
+}
+/*  ADD NEW TASK  */
+.newtask__container {
+  display: flex;
+  gap: 2.4rem;
+}
+.newtask__button {
+  height: 3.8rem;
+}
+.newtask__form {
+  width: 30rem;
+  background-color: #d0ebff;
+  padding: 0.5rem 1.8rem;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.newtask__input {
+  height: 2rem;
+}
+.newtask__add-btn {
+  background-color: #a5d8ff;
+  font-size: 1.2rem;
+  padding: 0.4rem 3.6rem;
+}
+/* TASKS  */
+.tasks__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 45rem;
+  flex-wrap: wrap;
+}
+.task__item {
+  background-color: #d0ebff;
+  text-align: center;
+  padding: 1rem 2.2rem;
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: 1fr 2rem;
+  font-size: 1.8rem;
+  column-gap: 1.2rem;
+  position: relative;
+}
+.task__item-delete {
+  position: absolute;
+  right: -5px;
+  top: -3px;
+  border: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  background-color: #a5d8ff;
+  padding: 1px 4px;
+}
+.task__done {
+  text-decoration: line-through 3px;
+}
+label {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 8px;
+  }
+  .header__title {
+    font-size: 3rem;
+  }
+  .header__subtitle {
+    font-size: 1.2rem;
+  }
+}
