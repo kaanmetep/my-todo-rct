@@ -120,6 +120,28 @@ body {
   cursor: pointer;
   background-color: #a5d8ff;
   padding: 1px 4px;
+  border-radius: 6px;
+}
+.task__item-priority {
+  position: absolute;
+  left: -5px;
+  top: -2px;
+  font-size: 0.8rem;
+  padding: 1px 2px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.task__item-priority--low {
+  background-color: #fff5f5;
+}
+.task__item-priority--med {
+  background-color: #ff8787;
+  font-weight: 600;
+}
+.task__item-priority--high {
+  background-color: #f03e3e;
+  color: black;
+  font-weight: 900;
 }
 .task__done {
   text-decoration: line-through 3px;

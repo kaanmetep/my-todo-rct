@@ -1,22 +1,26 @@
 import { useState } from "react";
+import Priority from "./Priority";
 import "./App.css";
 
 const taskList = [
-  { id: 0, task: "Go to school", done: false },
+  { id: 0, task: "Go to school", done: false, priority: 1 },
   {
     id: 1,
     task: "Go to gym",
     done: false,
+    priority: 1,
   },
   {
     id: 2,
     task: "Study 2 hours",
     done: false,
+    priority: 1,
   },
   {
     id: 3,
     task: "Read book 30 minutes",
     done: false,
+    priority: 1,
   },
 ];
 
@@ -55,6 +59,7 @@ const Header = () => {
 const AddNewTask = ({ finalTaskList, setFinalTaskList }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [newTask, setNewTask] = useState("");
+  const [pri, setPri] = useState(1);
   const handleSubmit = function (e) {
     e.preventDefault();
     if (!newTask) return;
@@ -62,6 +67,7 @@ const AddNewTask = ({ finalTaskList, setFinalTaskList }) => {
       id: !finalTaskList.length ? 0 : finalTaskList.at(-1).id + 1,
       task: newTask,
       done: false,
+      priority: pri,
     };
     setFinalTaskList((items) => [...items, newItem]);
     setNewTask("");
@@ -77,25 +83,38 @@ const AddNewTask = ({ finalTaskList, setFinalTaskList }) => {
       </button>
 
       {isOpen && (
-        <form className="newtask__form" onSubmit={handleSubmit}>
-          <label htmlFor="">What's your plan?</label>
-          <input
-            type="text"
-            className="newtask__input"
-            value={newTask}
-            onChange={(e) => setNewTask(e.target.value)}
-          />
-          <button className="btn  newtask__add-btn">Add!</button>
-        </form>
+        <>
+          <form className="newtask__form" onSubmit={handleSubmit}>
+            <label htmlFor="">What's your plan?</label>
+            <input
+              type="text"
+              className="newtask__input"
+              value={newTask}
+              onChange={(e) => setNewTask(e.target.value)}
+            />
+            <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
+              <label htmlFor="priortiy" style={{ marginTop: "-4px" }}>
+                Priority:
+              </label>
+              <Priority pri={pri} onSetPri={setPri} />
+            </div>
+            <button className="btn  newtask__add-btn">Add!</button>
+          </form>
+        </>
       )}
     </div>
   );
 };
 
 const TaskList = ({ finalTaskList, setFinalTaskList }) => {
+  const sortedList = finalTaskList.slice().sort((a, b) => {
+    if (!a.done && !b.done) {
+      return Number(b.priority) - Number(a.priority);
+    }
+  });
   return (
     <ul className="tasks__list">
-      {finalTaskList.map((task) => (
+      {sortedList.map((task) => (
         <Task
           taskObj={task}
           finalTaskList={finalTaskList}
@@ -125,6 +144,19 @@ const Task = ({ taskObj, finalTaskList, setFinalTaskList }) => {
         setFinalTaskList={setFinalTaskList}
         taskObj={taskObj}
       />
+      <span
+        className={`task__item-priority ${
+          taskObj.priority === 1
+            ? "task__item-priority--low"
+            : taskObj.priority === 2
+            ? "task__item-priority--med"
+            : "task__item-priority--high"
+        }`}
+      >
+        {taskObj.priority === 1 && "Low"}
+        {taskObj.priority === 2 && "Medium"}
+        {taskObj.priority === 3 && "High"}
+      </span>
     </li>
   );
 };
