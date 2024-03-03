@@ -144,6 +144,7 @@ body {
   font-weight: 900;
 }
 .task__done {
+  -webkit-text-decoration: line-through;
   text-decoration: line-through 3px;
 }
 label {
