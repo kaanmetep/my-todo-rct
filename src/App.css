@@ -67,8 +67,15 @@ body {
   display: flex;
   gap: 2.4rem;
 }
+.newtask__add-btn {
+  background-color: #a5d8ff;
+  font-size: 1.2rem;
+  padding: 0.4rem 3.6rem;
+  z-index: 10;
+}
 .newtask__button {
   height: 3.8rem;
+  z-index: 10;
 }
 .newtask__form {
   width: 30rem;
@@ -83,11 +90,7 @@ body {
 }
 .newtask__input {
   height: 2rem;
-}
-.newtask__add-btn {
-  background-color: #a5d8ff;
-  font-size: 1.2rem;
-  padding: 0.4rem 3.6rem;
+  z-index: 10;
 }
 /* TASKS  */
 .tasks__list {

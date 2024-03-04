@@ -47,6 +47,7 @@ const Circle = ({ onClick, fill, onHoverIn, onHoverOut }) => {
         border: "1px solid black",
         cursor: "pointer",
         backgroundColor: fill ? "black" : "",
+        zIndex: "10",
       }}
       onClick={onClick}
       onMouseEnter={onHoverIn}
