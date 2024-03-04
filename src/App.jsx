@@ -64,7 +64,7 @@ const AddNewTask = ({ finalTaskList, setFinalTaskList }) => {
     e.preventDefault();
     if (!newTask) return;
     const newItem = {
-      id: !finalTaskList.length ? 0 : finalTaskList.at(-1).id + 1,
+      id: !finalTaskList.length ? 0 : finalTaskList.length,
       task: newTask,
       done: false,
       priority: pri,
