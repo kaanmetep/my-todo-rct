@@ -1,23 +1,24 @@
 import { useState } from "react";
 import Priority from "./Priority";
 import "./App.css";
+import { v4 as uuidv4 } from "uuid";
 
 const taskList = [
-  { id: 0, task: "Go to school", done: false, priority: 1 },
+  { id: uuidv4(), task: "Go to school", done: false, priority: 1 },
   {
-    id: 1,
+    id: uuidv4(),
     task: "Go to gym",
     done: false,
     priority: 1,
   },
   {
-    id: 2,
+    id: uuidv4(),
     task: "Study 2 hours",
     done: false,
     priority: 1,
   },
   {
-    id: 3,
+    id: uuidv4(),
     task: "Read book 30 minutes",
     done: false,
     priority: 1,
@@ -64,7 +65,7 @@ const AddNewTask = ({ finalTaskList, setFinalTaskList }) => {
     e.preventDefault();
     if (!newTask) return;
     const newItem = {
-      id: !finalTaskList.length ? 0 : finalTaskList.length,
+      id: uuidv4(),
       task: newTask,
       done: false,
       priority: pri,
@@ -72,6 +73,7 @@ const AddNewTask = ({ finalTaskList, setFinalTaskList }) => {
     setFinalTaskList((items) => [...items, newItem]);
     setNewTask("");
     setIsOpen(false);
+    setPri(1);
   };
   return (
     <div className="newtask__container">
@@ -98,7 +100,7 @@ const AddNewTask = ({ finalTaskList, setFinalTaskList }) => {
               </label>
               <Priority pri={pri} onSetPri={setPri} />
             </div>
-            <button className="btn  newtask__add-btn">Add!</button>
+            <button className="btn newtask__add-btn">Add!</button>
           </form>
         </>
       )}
@@ -110,6 +112,8 @@ const TaskList = ({ finalTaskList, setFinalTaskList }) => {
   const sortedList = finalTaskList.slice().sort((a, b) => {
     if (!a.done && !b.done) {
       return Number(b.priority) - Number(a.priority);
+    } else {
+      return Number(a.done) - Number(b.done);
     }
   });
   return (
@@ -173,7 +177,6 @@ const CheckBox = ({
     const updatedFinalTaskList = finalTaskList.map((task) =>
       task.id === taskObj.id ? { ...task, done: !isSelected } : task
     );
-    updatedFinalTaskList.sort((a, b) => Number(a.done) - Number(b.done));
     setFinalTaskList(updatedFinalTaskList);
   };
   return (
