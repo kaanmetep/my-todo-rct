@@ -16,3 +16,7 @@ While learning React, I'm developing a simple React todo app to both practice an
 
 ## Live Demo
 Explore the live demo: https://my-todo-rct-app.vercel.app/
+
+## Development Focus: JavaScript Concepts
+### Focused JavaScript Skill Advancement in this Project's Development:
+The primary objective of this project was to deepen my understanding of React and enhance my development skills. Throughout the project, I aimed to solidify my grasp on fundamental React concepts, including the utilization of props, state management using the useState hook, and working with immutable objects to ensure efficient updates. Additionally, the implementation of features such as sorting tasks based on priority and dynamically managing task completion allowed me to delve into React's core concepts and gain valuable hands-on experience.
